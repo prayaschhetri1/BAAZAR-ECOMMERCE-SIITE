@@ -1,0 +1,109 @@
+.container_div {
+  color: white;
+}
+
+.nav-link {
+  font-size: 20px;
+}
+.nav-item > input {
+  width: 260px;
+  padding: 5px 12px;
+  background-color: rgb(233, 233, 233);
+  outline: none;
+}
+
+.navbar-brand {
+  background-color: rgb(0, 115, 255);
+  color: white;
+  padding: 4px 12px;
+}
+
+.main-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  padding: 12px 0px;
+  background-color: blue;
+ 
+}
+
+.filter-btn {
+  background-color: rgb(95, 91, 91);
+  padding: 5px 20px;
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s;
+  margin-left: 12px;
+}
+.filter-btn:hover,
+.cart-btn:hover, .close-btn:hover {
+  transform: scale(0.99);
+  color: rgb(228, 225, 225);
+}
+
+.cart-btn {
+  background-color: blue;
+  width: 100%;
+  padding: 10px 40px;
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.close-btn {
+  background-color: rgb(30, 30, 33);
+  padding: 5px 20px;
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.box-image {
+  transition: all 0.3s;
+}
+.quick-shop {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quick-shop button {
+  cursor: pointer;
+  background-color: #fff;
+  font-weight: 600;
+  padding: 6px 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  outline: none;
+}
+.quick-shop button:hover {
+  background-color: rgb(209, 205, 205);
+}
+.box-image:hover {
+  transform: scale(1.1);
+}
+
+/* Media query */
+@media only screen and (min-width: 900px) {
+  .left {
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .left {
+    align-items: center;
+  }
+  .filter-btn {
+    background-color: rgb(95, 91, 91);
+    padding: 5px 20px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s;
+    margin-left: 60px;
+  }
+}
