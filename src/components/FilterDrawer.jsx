@@ -15,13 +15,14 @@ import {
 } from "@chakra-ui/react";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 const FilterDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [searchParams, setSearchParams] = useSearchParams();
   let initialCategory = searchParams.getAll("category");
   const [placement, setPlacement] = React.useState("left");
   const [category, setCategory] = useState(initialCategory || []);
+  const [sortBy, setSortBy] = useState(initialCategory);
   const handleCategory = (e) => {
     const value = [...category];
     if (value.includes(e.target.value)) {
@@ -40,7 +41,9 @@ const FilterDrawer = () => {
     }
   }, [category, setSearchParams]);
 
-
+  const handleSort = (e) => {
+    console.log(e.target.value);
+  };
 
   return (
     <>
@@ -54,63 +57,75 @@ const FilterDrawer = () => {
           <DrawerBody>
             <Flex direction={"column"} mt="17px" gap="60px">
               <Flex direction={"column"} gap="30px">
-              <Text fontSize={"22px"} fontWeight="600">
-                Category
-              </Text>
-              <Flex direction={"column"} gap="10px">
-                <Flex gap={"25px"} align="center">
-                  <input
-                    checked={category.includes("Jacket")}
-                    onChange={handleCategory}
-                    type="checkbox"
-                    value="Jacket"
-                  />
-                  <Text fontSize={"17px"} fontWeight="600">
-                    Jacket
-                  </Text>
+                <Text fontSize={"22px"} fontWeight="600">
+                  Category
+                </Text>
+                <Flex direction={"column"} gap="10px">
+                  <Flex gap={"25px"} align="center">
+                    <input
+                      checked={category.includes("Jacket")}
+                      onChange={handleCategory}
+                      type="checkbox"
+                      value="Jacket"
+                    />
+                    <Text fontSize={"17px"} fontWeight="600">
+                      Jacket
+                    </Text>
+                  </Flex>
+                  <Flex gap={"25px"} align="center">
+                    <input
+                      checked={category.includes("Shoes")}
+                      onChange={handleCategory}
+                      type="checkbox"
+                      value="Shoes"
+                    />
+                    <Text fontSize={"17px"} fontWeight="600">
+                      Shoes
+                    </Text>
+                  </Flex>{" "}
+                  <Flex gap={"25px"} align="center">
+                    <input
+                      checked={category.includes("jwellary")}
+                      onChange={handleCategory}
+                      type="checkbox"
+                      value="jwellary"
+                    />
+                    <Text fontSize={"17px"} fontWeight="600">
+                      Jwellary
+                    </Text>
+                  </Flex>
                 </Flex>
-                <Flex gap={"25px"} align="center">
-                  <input
-                    checked={category.includes("Shoes")}
-                    onChange={handleCategory}
-                    type="checkbox"
-                    value="Shoes"
-                  />
-                  <Text fontSize={"17px"} fontWeight="600">
-                    Shoes
-                  </Text>
-                </Flex>{" "}
-                <Flex gap={"25px"} align="center">
-                  <input
-                    checked={category.includes("jwellary")}
-                    onChange={handleCategory}
-                    type="checkbox"
-                    value="jwellary"
-                  />
-                  <Text fontSize={"17px"} fontWeight="600">
-                    Jwellary
-                  </Text>
-                </Flex>
-              </Flex>
               </Flex>
               <Flex direction={"column"} gap="30px">
-              <Text fontSize={"22px"} fontWeight="600">
-                Sort By Price
-              </Text>
-              <Flex align="center" justify={"space-between"}>
-                <Flex align="center" gap="10px">
-                  <input type="radio" />
-                  <Text fontSize={"17px"} fontWeight="600">
-                    Hight To Low
-                  </Text>
+                <Text fontSize={"22px"} fontWeight="600">
+                  Sort By Price
+                </Text>
+                <Flex align="center" justify={"space-between"}>
+                  <Flex align="center" gap="10px">
+                    <input
+                      type="radio"
+                      value="asc"
+                      name="sortBy"
+                      defaultChecked={sortBy === "asc"}
+                      onChange={handleSort}
+                    />
+                    <Text fontSize={"17px"} fontWeight="600">
+                      Hight To Low
+                    </Text>
+                  </Flex>
+                  <Flex align="center" gap="10px">
+                    <input
+                      type="radio"
+                      value="asc"
+                      name="sortBy"
+                      defaultChecked={sortBy === "asc"}
+                      onChange={handleSort}
+                    />
+                    <Text fontSize={"17px"} fontWeight="600">
+                      Low To High
+                    </Text>
+                  </Flex>
                 </Flex>
-                <Flex align="center" gap="10px">
-                  <input type="radio" />
-                  <Text fontSize={"17px"} fontWeight="600">
-                    Low To High
-                  </Text>
-                </Flex>
-              </Flex>
               </Flex>
             </Flex>
           </DrawerBody>

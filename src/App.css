@@ -27,7 +27,9 @@
   background-color: blue;
  
 }
-
+.toggleer{
+  color: white;
+}
 .filter-btn {
   background-color: rgb(95, 91, 91);
   padding: 5px 20px;

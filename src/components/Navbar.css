@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  html {
+  
+    overflow-x: hidden;
+  }
+  
+  .container {
+    padding: 0 2.8rem;
+    background-color: rgb(53, 52, 50);
+    border-bottom: 1px solid black;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo img {
+    height: 42px;
+  }
+  
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+  }
+  
+  .nav-contents:link,
+  .nav-contents:visited {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+    transition: all 0.2s;
+  }
+  
+  .nav-contents:hover,
+  .nav-contents:active {
+    color: rgb(207, 210, 212);
+    transform: scale(0.92);
+    cursor: pointer;
+  }
+  
+  .mobile-open-close-btn i {
+    color: white;
+    font-size: 1.7rem;
+    transition: all 0.3s;
+  }
+  
+  .mobile-open-close-btn i:hover {
+    transform: scale(0.92);
+    color: rgb(226, 220, 220);
+  }
+  
+  .mobile-open-close-btn {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .mobile-open-close-icons[name="close-icon"] {
+    display: none;
+  }
+  
+  /* Body part */
+  
+  .main-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(10, 195, 148);
+    height: 64vh;
+    color: white;
+  }
+  
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(53, 52, 50);
+    padding: 4rem 2rem;
+    color: white;
+    margin-bottom: 0px;
+  }
+  
+  /* Media query */
+  
+  @media (max-width: 62em) {
+    .mobile-open-close-btn {
+      display: block;
+      z-index: 999;
+      border: 3px solid rgb(0, 195, 255);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+    }
+    .container {
+      position: relative;
+    }
+    .navbar {
+      width: 100%;
+      height: 100vh;
+      background-color: rgb(53, 52, 50);
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(100%);
+      transition: all 0.55s linear;
+      opacity: 0;
+    
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .nav-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .active .navbar {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: visible;
+    }
+  
+    .active .mobile-open-close-btn .mobile-open-close-icons[name="close-icon"] {
+      display: block;
+    }
+  
+    .active .mobile-open-close-btn .mobile-open-close-icons[name="open-icon"] {
+      display: none;
+    }
+  }
+  

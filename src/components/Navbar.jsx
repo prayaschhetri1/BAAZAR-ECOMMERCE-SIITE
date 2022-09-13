@@ -40,13 +40,13 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon toggleer"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <NavLink
-                  className="nav-link active"
+                  className="nav-link active text-light"
                   aria-current="page"
                   to="/mens"
                 >
@@ -54,13 +54,13 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/womens">
+                <NavLink className="nav-link text-light" to="/womens">
                   Womens
                 </NavLink>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0 left">
+            <form className="d-flex text-left" role="search">
+              <ul className="navbar-nav me-auto mb-2 text-center mb-lg-0 left">
                 <li className="nav-item">
                   <input
                     type={"text"}
@@ -70,17 +70,17 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/signup">
+                  <NavLink className="nav-link text-light" to="/signup">
                     SignUp
                   </NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/login">
+                <li className="nav-item text-light">
+                  <NavLink className="nav-link text-light" to="/login">
                     Login
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/cart">
+                  <NavLink className="nav-link text-light" to="/cart">
                     Cart
                   </NavLink>
                 </li>

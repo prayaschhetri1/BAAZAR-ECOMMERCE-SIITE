@@ -7,6 +7,7 @@ import Cart from "./../pages/Cart";
 import Mens from "./../pages/Mens";
 import Womens from "./../pages/Womens";
 import Checkout from './../pages/Checkout';
+import Payment from "../pages/Payment";
 
 const MainRoute = () => {
   return (
@@ -18,6 +19,7 @@ const MainRoute = () => {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/cart/checkout" element={<Checkout />} />
+      <Route path="/cart/checkout/payment" element={<Payment />} />
 
     </Routes>
   );
