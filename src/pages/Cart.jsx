@@ -31,7 +31,7 @@ const Cart = () => {
 
   const navigate = useNavigate();
   const handleRedirect = () => {
-    navigate("/");
+    navigate("/mens");
   };
 
   useEffect(() => {

@@ -21,13 +21,18 @@ const Mens = () => {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
+    const sortBy = searchParams.get("sortBy");
     let getParams = {
       params: {
+        q: searchParams.get("q"),
         category: searchParams.getAll("category"),
+        _sort: sortBy && "price",
+        _order: sortBy,
       },
     };
+    // console.log(getParams)
     dispatch(getData(getParams));
-  }, [dispatch, location.search]);
+  }, [location.search]);
 
   if (isLoading) {
     return (

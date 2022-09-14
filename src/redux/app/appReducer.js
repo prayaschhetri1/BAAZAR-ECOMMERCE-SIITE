@@ -5,6 +5,7 @@ const intialState = {
   isError: false,
   data: [],
   cart: [],
+  search: "",
 };
 
 export const appReducer = (state = intialState, action) => {
@@ -38,6 +39,7 @@ export const appReducer = (state = intialState, action) => {
         isLoading: false,
       };
     }
+
     case types.ADD_DATA_SUCCESS: {
       return {
         ...state,
@@ -52,25 +54,51 @@ export const appReducer = (state = intialState, action) => {
       };
     }
     case types.CART_DATA_LOADING: {
-        return {
-          ...state,
-          isLoading: true,
-        };
-      }
-      case types.CART_DATA_SUCCESS: {
-        return {
-          ...state,
-          cart: payload,
-          isLoading: false,
-        };
-      }
-      case types.CART_DATA_FAILURE: {
-        return {
-          ...state,
-          isLoading: false,
-          isError: true,
-        };
-      }
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+    case types.CART_DATA_SUCCESS: {
+      return {
+        ...state,
+        cart: payload,
+        isLoading: false,
+      };
+    }
+    case types.CART_DATA_FAILURE: {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
+    }
+
+  case types.SEARCH_DATA: {
+    return {
+      ...state,
+      search:payload
+    };
+  }
+
+    case types.DELETE_CART_DATA_LOADING: {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }
+    case types.DELETE_CART_DATA_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }
+    case types.DELETE_CART_DATA_FAILURE: {
+      return {
+        ...state,
+        isError: true,
+      };
+    }
     default:
       return state;
   }

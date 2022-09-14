@@ -1,27 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import axios from "axios";
 import { useDispatch } from "react-redux";
-import { getData } from "./../redux/app/action";
+import { getSearch } from "./../redux/app/action";
 
 const Navbar = () => {
-  const data = useSelector((state) => state.app.data);
-  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
 
   const handlePress = (e) => {
-    setSearch(e.target.value);
-
-    //  if(e.charCode===13){
-    //   axios
-    //   .get(`https://json-server1122.herokuapp.com/prods?q=${search}`)
-    //   .then((res) => {
-    //     dispatch(getData(search));
-    //     console.log(res.data)
-    //   });
-
-    //  }
+    dispatch(getSearch(e.target.value));
   };
 
   return (

@@ -20,9 +20,14 @@ const FilterDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [searchParams, setSearchParams] = useSearchParams();
   let initialCategory = searchParams.getAll("category");
+  let initialSort = searchParams.getAll("sortBy");
+  const initialSearch = searchParams.getAll("q")
   const [placement, setPlacement] = React.useState("left");
   const [category, setCategory] = useState(initialCategory || []);
-  const [sortBy, setSortBy] = useState(initialCategory);
+  const [sortBy, setSortBy] = useState(initialSort[0] || "");
+  
+  const qdata =  useSelector(state=>state.app.search) 
+  const [q,setQ] = useState(initialSearch || "")
   const handleCategory = (e) => {
     const value = [...category];
     if (value.includes(e.target.value)) {
@@ -34,15 +39,19 @@ const FilterDrawer = () => {
   };
 
   useEffect(() => {
-    if (category) {
+    if (category || sortBy || q) {
       let params = {};
+      q && (params.q = q)
       category && (params.category = category);
+      sortBy && (params.sortBy = sortBy);
+   
       setSearchParams(params);
+      setQ(qdata)
     }
-  }, [category, setSearchParams]);
+  }, [category, setSearchParams, q,sortBy,qdata]);
 
   const handleSort = (e) => {
-    console.log(e.target.value);
+    setSortBy(e.target.value);
   };
 
   return (
@@ -104,9 +113,9 @@ const FilterDrawer = () => {
                   <Flex align="center" gap="10px">
                     <input
                       type="radio"
-                      value="asc"
+                      value="desc"
                       name="sortBy"
-                      defaultChecked={sortBy === "asc"}
+                      defaultChecked={sortBy === "desc"}
                       onChange={handleSort}
                     />
                     <Text fontSize={"17px"} fontWeight="600">

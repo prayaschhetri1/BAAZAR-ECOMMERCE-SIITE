@@ -15,12 +15,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { DeleteIcon } from "@chakra-ui/icons";
 
 import axios from "axios";
-import { getCartData } from "./../redux/app/action";
+import { deleteCartData, getCartData } from "./../redux/app/action";
 
 const CartData = ({ item }) => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
-  const handleDelete = (id) => {};
+  const handleDelete = (id) => {
+      dispatch(deleteCartData(id)).then((res) => dispatch(getCartData()))
+  };
 
   const handleCountInc = (item) => {
     const payload = {
@@ -33,7 +35,7 @@ const CartData = ({ item }) => {
     };
     axios
       .patch(`https://json-server1122.herokuapp.com/bag/${item.id}`, payload)
-      .then((res) => dispatch(getCartData(res)));
+      .then((res) => dispatch(getCartData(res)))
   };
 
   const handleCountDec = (item) => {
