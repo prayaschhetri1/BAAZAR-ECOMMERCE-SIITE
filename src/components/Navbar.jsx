@@ -5,7 +5,6 @@ import { getSearch } from "./../redux/app/action";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-
   const handlePress = (e) => {
     dispatch(getSearch(e.target.value));
   };

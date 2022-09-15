@@ -43,7 +43,12 @@ const MapData = ({ item }) => {
 
   return (
     <>
-      <Modal size={"2xl"} onClose={onClose} isOpen={isOpen} isCentered>
+      <Modal
+        size={{ base: "sm", md: "md", lg: "3xl" }}
+        onClose={onClose}
+        isOpen={isOpen}
+        isCentered
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader bg="blackAlpha.700" color={"white"} p="10px">
@@ -52,7 +57,11 @@ const MapData = ({ item }) => {
           <ModalCloseButton color="white" />
           <ModalBody>
             <Flex gap="30px">
-              <Image height={"100%"} src={item.image} />
+              <Image
+                height={{ base: "50%", md: "100%", lg: "100%" }}
+                w={{ base: "100px", md: "200px", lg: "200px" }}
+                src={item.image}
+              />
               <Flex direction={"column"} justify="space-between">
                 <Flex direction={"column"} gap="40px">
                   <Flex direction={"column"} gap="10px">
@@ -80,7 +89,6 @@ const MapData = ({ item }) => {
                   <button
                     onClick={() => handleAddToCart(item)}
                     className="cart-btn"
-                    
                   >
                     ADD TO CART
                   </button>
