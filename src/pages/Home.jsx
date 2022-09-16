@@ -5,10 +5,17 @@ import "swiper/css";
 import { Link } from "react-router-dom";
 import { Box, Image, SimpleGrid } from "@chakra-ui/react";
 import category from "../components/Category.json";
+import { useSelector } from 'react-redux';
+import Mens from './Mens';
 const Home = () => {
   // console.log(category);
+  const search = useSelector(state=>state.app.search)
+
   return (
-    <div className={styles.container}>
+    <>
+    {
+      search!=="" ? (<Mens/>) : (
+<div className={styles.container}>
       <div className={styles.swiperStyle}>
         <Swiper>
           <SwiperSlide>
@@ -125,6 +132,10 @@ const Home = () => {
         })}
       </SimpleGrid>
     </div>
+      )
+    }
+    
+    </>
   );
 };
 

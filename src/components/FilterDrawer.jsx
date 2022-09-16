@@ -27,6 +27,7 @@ const FilterDrawer = () => {
   const [sortBy, setSortBy] = useState(initialSort[0] || "");
   
   const qdata =  useSelector(state=>state.app.search) 
+  console.log(qdata)
   const [q,setQ] = useState(initialSearch || "")
   const handleCategory = (e) => {
     const value = [...category];
