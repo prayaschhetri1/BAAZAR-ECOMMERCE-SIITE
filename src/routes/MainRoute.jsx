@@ -8,6 +8,7 @@ import Mens from "./../pages/Mens";
 import Womens from "./../pages/Womens";
 import Checkout from './../pages/Checkout';
 import Payment from "../pages/Payment";
+import Otp from "../pages/Otp";
 
 const MainRoute = () => {
   return (
@@ -20,6 +21,7 @@ const MainRoute = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/cart/checkout" element={<Checkout />} />
       <Route path="/cart/checkout/payment" element={<Payment />} />
+      <Route path="/cart/checkout/payment/otp" element={<Otp />} />
 
     </Routes>
   );

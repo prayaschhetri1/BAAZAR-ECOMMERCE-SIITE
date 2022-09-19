@@ -1,16 +1,23 @@
 import { Box, Button, Input } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../components/FinalPayment.module.css";
 import OtpPage from "./OtpPage";
-const formData = JSON.parse(localStorage.getItem("form"));
+const getAddress = () => {
+  const formData = JSON.parse(localStorage.getItem("form"))
+  return formData;
+};
 const Payment = () => {
-  const [address, setAddress] = useState(formData || []);
-  const [openOtp,setOpenOtp] = useState(false)
+  const [address, setAddress] = useState(getAddress());
+  const [openOtp, setOpenOtp] = useState(false);
   const navigate = useNavigate();
-  console.log(address)
+
+  const handleRedirct = () => {
+    navigate("/cart/checkout/payment/otp")
+  }
+  
   return (
-    <Box >
+    <Box>
       <div className={styles.container}>
         <div className={styles.parent}>
           <div className={styles.parentLeft}>
@@ -28,12 +35,13 @@ const Payment = () => {
                     }}
                   >
                     <div className={styles.addressPara}>
-                      <p>{address.first_name} {address.last_name}</p>
+                      <p>
+                        {address.first_name} {address.last_name}
+                      </p>
                       <p>{address.address1}</p>
                       <p>{address.address2}</p>
                       <p>{address.mobile}</p>
                       <p>{address.country}</p>
-
                     </div>
                     <p
                       style={{
@@ -76,7 +84,8 @@ const Payment = () => {
                     <div className={styles.cardInput1}>
                       <Input
                         className={styles.cardNumber}
-                        type="text"
+                        
+                        type="number"
                         placeholder="Card Number *"
                       />
                       <i className="fa-solid fa-lock"></i>
@@ -143,7 +152,7 @@ const Payment = () => {
                           bg="blue"
                           color={"white"}
                           className={styles.paymentButton}
-                          onClick={() => setOpenOtp(true)}
+                          onClick={handleRedirct}
                         >
                           PAY NOW
                         </Button>

@@ -21,7 +21,7 @@ const SignUp = () => {
     mobile:"",
     age:"",
     password:"",
-    gender:"male"
+    gender:""
   })
   const handleChange = (e) => {
     const {name,value} = e.target;
@@ -47,7 +47,8 @@ const SignUp = () => {
           width="100%"
           align={"center"}
           justify="center"
-          bg="#1f1919"
+          bg="
+          #4a5568"
         >
           <Text fontWeight={"600"} color="white" fontSize="29px">
             SignUp
@@ -102,19 +103,19 @@ const SignUp = () => {
                 <Text fontWeight={"600"}>Gender</Text>
                 <Flex align={"center"} gap="10px">
                   <Flex align={"center"} gap="4px">
-                    <input name="male" type="radio" value={input.gender} onChange={handleChange} />
+                    <input name="gender" type="radio" value="male" onChange={handleChange} />
                     <Text fontSize={"14px"} fontWeight={"600"}>
                       Male
                     </Text>
                   </Flex>
                   <Flex align={"center"} gap="4px">
-                    <input name="female" value={input.gender} onChange={handleChange} type="radio" />
+                    <input isRequired name="gender" value="female" onChange={handleChange} type="radio" />
                     <Text fontSize={"14px"} fontWeight={"600"}>
                       Female
                     </Text>
                   </Flex>
                   <Flex align={"center"} gap="4px">
-                    <input name="others" value={input.gender} onChange={handleChange} type="radio" />
+                    <input name="gender" value="others" onChange={handleChange} type="radio" />
                     <Text fontSize={"14px"} fontWeight={"600"}>
                       Others
                     </Text>
@@ -170,7 +171,7 @@ const SignUp = () => {
               value={input.mobile}
               name="mobile"
             />
-            <Button type="submit" colorScheme={"blue"}>
+            <Button type="submit" bg={"#4a5568"} color="white">
               Submit
             </Button>
             <NavLink

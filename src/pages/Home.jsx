@@ -19,7 +19,7 @@ const Home = () => {
       <div className={styles.swiperStyle}>
         <Swiper>
           <SwiperSlide>
-            <Link to="/men">
+            <Link to="/mens">
               <img
                 className={styles.full_width_image}
                 src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/6/1/7b1da839-34a4-4e78-b5b5-e18af304e3bd1654099311017-Top-Kurta-Sets_Desk.jpg"
